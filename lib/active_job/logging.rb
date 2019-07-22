@@ -9,6 +9,10 @@ module ActiveJob
     included do
       cattr_accessor(:logger) { ActiveSupport::TaggedLogging.new(Logger.new(STDOUT)) }
 
+      def logger
+        ActiveJob::Base.logger
+      end
+
       around_enqueue do |_, block, _|
         tag_logger do
           block.call
@@ -121,10 +125,6 @@ module ActiveJob
 
           def scheduled_at(event)
             Time.at(event.payload[:job].scheduled_at).utc
-          end
-
-          def logger
-            ActiveJob::Base.logger
           end
       end
   end
