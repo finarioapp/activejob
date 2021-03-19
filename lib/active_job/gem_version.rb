@@ -5,10 +5,10 @@ module ActiveJob
   end
 
   module VERSION
-    MAJOR = 5
-    MINOR = 1
-    TINY  = 4
-    PRE   = "rc1"
+    MAJOR = 1
+    MINOR = 0
+    TINY  = 1
+    PRE   = 'finario'
 
     STRING = [MAJOR, MINOR, TINY, PRE].compact.join(".")
   end
